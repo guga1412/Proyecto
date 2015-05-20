@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery-ui.css" />
+<script src="phonegap.js"></script>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet" href="css/jquery-ui.css" />
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+<script type="text"/javascript" "charset=utf-8" scr="phonegap.js"></script>
+    <title>Negocios de Libres</title>
+    
+    <style type="text/css">
+p{
+text-align:center;
+}
+</style>
+    <script type="text/javascript">
+    $(document).ready(function(){
+	document.addEventListener("deviceready", function(){
+		$('#regFoto').tap(function(){
+			navigator.device.capture.captureImage(function(mediaFiles){
+			path = mediaFiles[0].fullPath;
+			$('#Foto').append('<br><img src="'+path+'" width="100%" />').attr('rel',path);
+			},function(error){
+			navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+			},{limit:1});
+		});
+	}, false);
+    });
+    </script>
+
+</head>
+
+<body>
+    <div data-role="page" id="bienvenida" name="bienvenida">
+                <div data-role="header">
+                    <p style="text-align: center">BIENVENIDOS AL CATALOGO DE PyMES MOVIL</p>
+                </div>
+                <div data-role="content">
+                    <a href="#menu" data-role="button" data-transition="pop">Menú de movimientos</a>
+                    <a href="#qsomos" data-role="button" data-transition="pop">Quienes somos?</a>
+                    <a href="#contacto" data-role="button" data-transition="pop">Contactanos</a>
+                </div>
+                <div dato-role="footer" style="text-align: center">
+                    <address>Derechos Reservados <br> MUKISOFT</address>
+                </div>
+                
+            </div>
+            <div data-role="page" id="qsomos" name="bienvenida">
+                <div data-role="header">
+                    <p style="text-align: center">MUKISOFT</p>
+                </div>
+                <div data-role="content">
+                    <P style="text-align: center">Somos una empresa de desarrollo de software</P>
+                    <P style="text-align: center">humana y comprometida con el bienestar de </P>
+                    <P style="text-align: center">nuestros clientes y empleados que desarrolla</P>
+                    <P style="text-align: center">aplicaciones innovadoras y con responsabilidad</P>
+                    <P style="text-align: center">social ofreciendo productos de calidad</P>
+                </div>
+                <div dato-role="footer" style="text-align: center">
+                    <address>Derechos Reservados <br> MUKISOFT</address>
+                </div>
+                
+            </div>
+            <div data-role="page" id="contacto" name="bienvenida">
+                <div data-role="header">
+                    <p style="text-align: center">MUKISOFT CONTACTO</p>
+                </div>
+                <div data-role="content">
+                    <P style="text-align: center">E-mail: mukisoft_desarrollos@hotmail.com</P>
+                    <P style="text-align: center">Telefono: 2761074999</P>
+                    <P style="text-align: center">Directora General: Ing. Alondra Guerrero González</P>
+                    <P style="text-align: center">Direccion: 24 Norte No. 234 Libres, Pue.</P>
+                </div>
+                <div dato-role="footer" style="text-align: center">
+                    <address>Derechos Reservados <br> MUKISOFT</address>
+                </div>
+                
+            </div>
+    
+<div data-role="page" id="menu">
+  <div data-role="header" >
+    <p>Negocios Libres</p>
+  </div>
+  <div data-role="content">
+    <div>
+      <ul data-role="listview">
+        <a href="#registro" data-role="button" data-transition="slideup">Registro</a>
+	<a href="#consulta" data-role="button" data-transition="slideup">Consultar</a>
+	<a href="#actualizar" data-role="button" data-transition="slideup" >Modificar</a>
+        <a href="#eliminar" data-role="button" data-transition="slideup" >Eliminar</a>
+      </ul>
+    </div>
+  </div>
+  <div data-role="footer">
+  <p>Derechos reservados ITSL</p>
+  </div>
+</div>
+
+<!------------------------------------------REGISTRO-------------------------------------->
+
+<div data-role="page" id="registro">
+  <div data-role="header" >
+    <p>Registra tu negocio</p>
+  </div>
+  <div data-role="content">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre">
+    <label for="direccion">Dirección:</label>
+    <input type="text" id="direccion">
+    <label for="giro">Giro:</label>
+    <input type="text" id="giro">
+    <label for="foto">Foto:</label>
+    <input type="button" id="regFoto" value="Tomar foto">
+        <div id="Foto"></div>
+    <label for="foto">Coordenadas:</label>
+    <input type="button" id="coordenadas" value="Obtener coordenadas">
+    <input type="button" id="guardar" value="Guardar">
+  </div>
+  <div data-role="footer">
+  <p>Derechos reservados</p>
+  </div>
+</div>
+
+<div data-role="page" id="consulta">
+  <div data-role="header" >
+    <p>Consulta Datos de Negocio</p>
+  </div>
+  <div data-role="content">
+    <input type="button" id="consultar" value="Consultar">
+    <div id="resconsulta"></div>
+  </div>
+  <div data-role="footer">
+  <p>Derechos reservados</p>
+  </div>
+</div>
+
+
+<div data-role="page" id="actualizar">
+  <div data-role="header" >
+    <p>Actualizar informacion de la Empresa</p>
+  </div>
+  <div data-role="content">
+    <input type="button" id="btnConsAct" value="Mostrar registros">
+        <div id="respConAct"></div>
+        <label for="nomActualizar">ID a actualizar</label>
+        <input type="text" id="nomActualizar">
+        <input type="button" id="btnCarDatos" value="Cargar Datos">
+            <div id="respCargDatos"></div>
+        <input type="button" id="btnGuarDatos" value="Guardar Datos"> 
+  </div>
+  <div data-role="footer">
+  <p>Derechos reservados</p>
+  </div>
+</div>
+
+<div data-role="page" id="eliminar">
+  <div data-role="header" >
+    <p>Eliminar Negocio</p>
+  </div>
+  <div data-role="content">
+    <input type="button" id="btnConsEliminar" value="Mostrar todos los registros">
+        <div id="respConElim"></div>
+        <label for="idEliminar">ID a Eliminar</label>
+        <input type="text" id="idEliminar">
+        
+        <input type="button" id="btnEliminar" value="Eliminar un registro"> 
+  </div>
+  <div data-role="footer">
+  <p>Derechos reservados</p>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
